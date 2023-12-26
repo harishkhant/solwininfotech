@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">contactwidget_extend_contactwidget_editform.contactwidget_extend_contactwidget_listing_data_source</item>
+            <item name="deps" xsi:type="string">contactwidget_extend_contactwidget_editform.contactwidget_extend_contactwidget_listing_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Submit</item>
+        <item name="layout" xsi:type="array">
+            <item name="type" xsi:type="string">tabs</item>
+        </item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">Solwin\ContactwidgetExtend\Block\Adminhtml\CustomButton\Edit\BackButton</item>
+            <item name="delete" xsi:type="string">Solwin\ContactwidgetExtend\Block\Adminhtml\CustomButton\Edit\DeleteButton</item>
+            <item name="save" xsi:type="string">Solwin\ContactwidgetExtend\Block\Adminhtml\CustomButton\Edit\SaveEditButton</item>
+        </item>
+    </argument>
+
+    <dataSource name="contactwidget_extend_contactwidget_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Solwin\ContactwidgetExtend\Model\DataSource\DataProvider</argument>
+            <argument name="name" xsi:type="string">contactwidget_extend_contactwidget_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="requestFieldName" xsi:type="string">entity_id</argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+                <item name="submit_url" xsi:type="url" path="contactwidget_extend/contactwidget/saveedit" />
+                <item name="storageConfig" xsi:type="array">
+                    <item name="indexField" xsi:type="string">entity_id</item>
+                </item>
+            </item>
+        </argument>
+    </dataSource>
+
+    <fieldset name="entity_id">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Edit Information</item>
+            </item>
+        </argument>
+ 
+        <field name="entity_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">entity_id</item>
+                </item>
+            </argument>
+        </field>
+        <field name="name" sortOrder="30" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <visible>true</visible>
+                <label translate="true">Name</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="email" sortOrder="40">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Email</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">email</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                    <rule name="validate-email" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="telephone" sortOrder="50" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <visible>true</visible>
+                <label translate="true">Phone Number</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                    <rule name="min_text_length" xsi:type="number">10</rule>
+                    <rule name="max_text_length" xsi:type="number">10</rule>
+                    <rule name="validate-number" xsi:type="number">0</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="subject" sortOrder="60" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Subject</label>
+                <dataScope>subject</dataScope>
+                <visible>true</visible>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="comment" sortOrder="70" formElement="textarea">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">What’s on your mind?</label>
+                <dataScope>comment</dataScope>
+                <visible>true</visible>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="additional_field_1" sortOrder="80" formElement="select">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">How did you hear about us?</label>
+                <dataScope>additional_field_1</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options>
+                            <option name="please_select" xsi:type="array">
+                                <item name="value" xsi:type="string"></item>
+                                <item name="label" xsi:type="string" translate="true">Please select</item>
+                            </option>
+                            <option name="friend" xsi:type="array">
+                                <item name="value" xsi:type="string">friend</item>
+                                <item name="label" xsi:type="string" translate="true">From a friend</item>
+                            </option>
+                            <option name="search" xsi:type="array">
+                                <item name="value" xsi:type="string">search</item>
+                                <item name="label" xsi:type="string" translate="true">Found in a search engine</item>
+                            </option>
+                            <option name="social_media" xsi:type="array">
+                                <item name="value" xsi:type="string">social_media</item>
+                                <item name="label" xsi:type="string" translate="true">Social Media</item>
+                            </option>
+                        </options>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="additional_field_2" sortOrder="90" formElement="multiselect">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Interests</label>
+                <dataScope>additional_field_2</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+            <formElements>
+                <multiselect>
+                    <settings>
+                        <options>
+                            <option name="sports" xsi:type="array">
+                                <item name="value" xsi:type="string">sports</item>
+                                <item name="label" xsi:type="string" translate="true">Sports</item>
+                            </option>
+                            <option name="technology" xsi:type="array">
+                                <item name="value" xsi:type="string">technology</item>
+                                <item name="label" xsi:type="string" translate="true">Technology</item>
+                            </option>
+                            <option name="food" xsi:type="array">
+                                <item name="value" xsi:type="string">food</item>
+                                <item name="label" xsi:type="string" translate="true">Food</item>
+                            </option>
+                        </options>
+                    </settings>
+                </multiselect>
+            </formElements>
+        </field>
+        <field name="additional_field_3" sortOrder="100" formElement="checkbox">
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="false">Subscribe to Newsletter</label>
+                <dataScope>additional_field_3</dataScope>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="string">off</map>
+                            <map name="true" xsi:type="string">on</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+    </fieldset>
+</form>

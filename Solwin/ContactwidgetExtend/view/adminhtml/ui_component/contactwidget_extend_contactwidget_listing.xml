@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">contactwidget_extend_contactwidget_listing.contactwidget_extend_contactwidget_listing_data_source</item>
+			<item name="deps" xsi:type="string">contactwidget_extend_contactwidget_listing.contactwidget_extend_contactwidget_listing_data_source</item>
+		</item>
+		<item name="spinner" xsi:type="string">contacts_columns</item>
+		 <item name="buttons" xsi:type="array">
+            <item name="add" xsi:type="array">
+                <item name="name" xsi:type="string">add</item>
+                <item name="label" xsi:type="string" translate="true">Add New Row</item>
+                <item name="class" xsi:type="string">primary</item>
+                <item name="url" xsi:type="string">*/*/addrow</item>
+            </item>
+        </item>
+	</argument>
+	<dataSource name="contactwidget_extend_contactwidget_listing_data_source">
+		<argument name="dataProvider" xsi:type="configurableObject">
+			<argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+			<argument name="name" xsi:type="string">contactwidget_extend_contactwidget_listing_data_source</argument>
+			<argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+			<argument name="requestFieldName" xsi:type="string">entity_id</argument>
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="update_url" xsi:type="url" path="mui/index/render"/></item>
+			</argument>
+		</argument>
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+			</item>
+		</argument>
+	</dataSource>
+	<!-- Container Listing Top -->
+	<container name="listing_top">
+		<argument name="data" xsi:type="array">
+			<item name="config" xsi:type="array">
+				<item name="template" xsi:type="string">ui/grid/toolbar</item>
+			</item>
+		</argument>
+		<!-- Button to manage views -->
+		<bookmark name="bookmarks">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/grid/controls/bookmarks/bookmarks</item>
+					<item name="displayArea" xsi:type="string">dataGridActions</item>
+					<item name="storageConfig" xsi:type="array">
+						<item name="saveUrl" xsi:type="url" path="mui/bookmark/save"/>
+						<item name="deleteUrl" xsi:type="url" path="mui/bookmark/delete"/>
+						<item name="namespace" xsi:type="string">contactwidget_extend_contactwidget_listing</item>
+					</item>
+				</item>
+			</argument>
+		</bookmark>
+		<!-- Button to manage columns -->
+		<container name="columns_controls">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="columnsData" xsi:type="array">
+						<item name="provider" xsi:type="string">contactwidget_extend_contactwidget_listing.contactwidget_extend_contactwidget_listing</item>
+					</item>
+					<item name="component" xsi:type="string">Magento_Ui/js/grid/controls/columns</item>
+					<item name="displayArea" xsi:type="string">dataGridActions</item>
+				</item>
+			</argument>
+		</container>
+		<massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">contactwidget_extend_contactwidget_listing.contactwidget_extend_contactwidget_listing.contacts_columns.ids</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
+                    <item name="indexField" xsi:type="string">entity_id</item>
+                </item>
+            </argument>
+            <!-- Mass actions which you want to add in your grid-->
+            <action name="delete">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">delete</item>
+                        <item name="label" xsi:type="string" translate="true">Delete</item>
+                        <item name="url" xsi:type="url" path="contactwidget_extend/contactwidget/massdelete"/>
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Delete</item>
+                            <item name="message" xsi:type="string" translate="true">Do you want to delete selected row record?</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+     </massaction>
+		<!-- Paging -->
+		<paging name="listing_paging">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="storageConfig" xsi:type="array">
+						<item name="provider" xsi:type="string">contactwidget_extend_contactwidget_listing.contactwidget_extend_contactwidget_listing.listing_top.bookmarks</item>
+						<item name="namespace" xsi:type="string">current.paging</item>
+					</item>
+					<item name="selectProvider" xsi:type="string">contactwidget_extend_contactwidget_listing.contactwidget_extend_contactwidget_listing.ids</item>
+					<item name="displayArea" xsi:type="string">bottom</item>
+				</item>
+			</argument>
+		</paging>
+		<!-- Filters -->
+		<filters name="listing_filters">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="storageConfig" xsi:type="array">
+						<item name="provider" xsi:type="string">contactwidget_extend_contactwidget_listing.contactwidget_extend_contactwidget_listing.listing_top.bookmarks</item>
+						<item name="namespace" xsi:type="string">current.filters</item>
+					</item>
+					<item name="childDefaults" xsi:type="array">
+						<item name="provider" xsi:type="string">contactwidget_extend_contactwidget_listing.contactwidget_extend_contactwidget_listing.listing_top.listing_filters</item>
+						<item name="imports" xsi:type="array">
+							<item name="visible" xsi:type="string">contactwidget_extend_contactwidget_listing.contactwidget_extend_contactwidget_listing.listing_top.bookmarks:current.columns.${ $.index }.visible</item>
+						</item>
+					</item>
+				</item>
+			</argument>
+		</filters>
+		<!-- Filter Search -->
+		<filterSearch name="fulltext">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="provider" xsi:type="string">contactwidget_extend_contactwidget_listing.contactwidget_extend_contactwidget_listing_data_source</item>
+					<item name="chipsProvider" xsi:type="string">contactwidget_extend_contactwidget_listing.contactwidget_extend_contactwidget_listing.listing_top.listing_filters_chips</item>
+					<item name="storageConfig" xsi:type="array">
+						<item name="provider" xsi:type="string">contactwidget_extend_contactwidget_listing.contactwidget_extend_contactwidget_listing.listing_top.bookmarks</item>
+						<item name="namespace" xsi:type="string">current.search</item>
+					</item>
+				</item>
+			</argument>
+		</filterSearch>
+	</container>
+	<columns name="contacts_columns">
+		<argument name="data" xsi:type="array">
+			<item name="config" xsi:type="array">
+				<!-- Bookmarks behaviour -->
+				<item name="storageConfig" xsi:type="array">
+					<item name="provider" xsi:type="string">contactwidget_extend_contactwidget_listing.contactwidget_extend_contactwidget_listing.listing_top.bookmarks</item>
+					<item name="namespace" xsi:type="string">current</item>
+				</item>
+				<item name="childDefaults" xsi:type="array">
+					<item name="controlVisibility" xsi:type="boolean">true</item>
+					<!-- Bookmarks behaviour -->
+					<item name="storageConfig" xsi:type="array">
+						<item name="provider" xsi:type="string">contactwidget_extend_contactwidget_listing.contactwidget_extend_contactwidget_listing.listing_top.bookmarks</item>
+						<item name="root" xsi:type="string">columns.${ $.index }</item>
+						<item name="namespace" xsi:type="string">current.${ $.storageConfig.root}</item>
+					</item>
+				</item>
+			</item>
+		</argument>
+		<!-- Add columns with checkboxes -->
+        <selectionsColumn name="ids">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">30</item>
+                    <item name="indexField" xsi:type="string">entity_id</item>
+                    <item name="label" xsi:type="string" translate="true">Select Checkboxes</item>
+                </item>
+            </argument>
+            <settings>
+                <draggable>true</draggable>
+            </settings>
+        </selectionsColumn>
+		<!-- ID Column -->
+		<column name="entity_id">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">textRange</item>
+					<item name="sorting" xsi:type="string">asc</item>
+					<item name="label" xsi:type="string" translate="true">Entity Id</item>
+					<item name="sortOrder" xsi:type="number">20</item>
+				</item>
+			</argument>
+		</column>
+		<!-- Name Column -->
+		<column name="name">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="editor" xsi:type="array">
+						<item name="editorType" xsi:type="string">text</item>
+						<item name="sortOrder" xsi:type="number">30</item>
+						<item name="validation" xsi:type="array">
+							<item name="required-entry" xsi:type="boolean">true</item>
+						</item>
+					</item>
+					<item name="label" xsi:type="string" translate="true">Name</item>
+				</item>
+			</argument>
+		</column>
+		<!-- Email Column -->
+		<column name="email">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="sortOrder" xsi:type="number">40</item>
+					<item name="editor" xsi:type="array">
+						<item name="editorType" xsi:type="string">text</item>
+						<item name="validation" xsi:type="array">
+							<item name="required-entry" xsi:type="boolean">true</item>
+						</item>
+					</item>
+					<item name="label" xsi:type="string" translate="true">Email</item>
+				</item>
+			</argument>
+		</column>
+		<column name="telephone">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="sortOrder" xsi:type="number">50</item>
+					<item name="filter" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">Phone Number</item>
+				</item>
+			</argument>
+		</column>
+		<!-- subject Column -->
+		<column name="subject">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="editor" xsi:type="array">
+						<item name="sortOrder" xsi:type="number">60</item>
+						<item name="editorType" xsi:type="string">text</item>
+						<item name="validation" xsi:type="array">
+							<item name="required-entry" xsi:type="boolean">true</item>
+						</item>
+					</item>
+					<item name="label" xsi:type="string" translate="true">Subject</item>
+				</item>
+			</argument>
+		</column>
+		<!-- subject Column -->
+		<column name="comment">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="editor" xsi:type="array">
+						<item name="sortOrder" xsi:type="number">70</item>
+						<item name="editorType" xsi:type="string">text</item>
+						<item name="validation" xsi:type="array">
+							<item name="required-entry" xsi:type="boolean">true</item>
+						</item>
+					</item>
+					<item name="label" xsi:type="string" translate="true">Comment</item>
+				</item>
+			</argument>
+		</column>
+		<!-- Additional Field 1 -->
+		<column name="additional_field_1" class="Solwin\ContactwidgetExtend\Ui\Component\Listing\Column\AdditionalField1">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">How did you hear about us?</item>
+				</item>
+			</argument>
+		</column>
+
+		<!-- Additional Field 2 -->
+		<column name="additional_field_2" class="Solwin\ContactwidgetExtend\Ui\Component\Listing\Column\AdditionalField2">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">text</item>
+					<item name="label" xsi:type="string" translate="true">Interests</item>
+				</item>
+			</argument>
+		</column>
+
+		<!-- Additional Field 3 -->
+		<column name="additional_field_3" class="Solwin\ContactwidgetExtend\Ui\Component\Listing\Column\AdditionalField3">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">select</item>
+					<item name="label" xsi:type="string" translate="true">Subscribe to Newsletter</item>
+				</item>
+			</argument>
+		</column>
+         <!-- Action columns -->
+        <actionsColumn name="actions" class="Solwin\ContactwidgetExtend\Ui\Component\Listing\Column\CustomActions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">100</item>
+                    <item name="indexField" xsi:type="string">entity_id</item>
+                </item>
+            </argument>
+        </actionsColumn>  
+	</columns>
+</listing>

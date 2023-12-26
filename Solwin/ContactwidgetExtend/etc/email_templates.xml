@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Email/etc/email_templates.xsd">
+    <template id="contactwidget_section_emailsend_emailtemplate" label="Send Request For Contact Us" file="contact_form.html" type="html" module="Solwin_ContactwidgetExtend" area="frontend"/>
+</config>

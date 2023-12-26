@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/config.xsd">
+    <default>
+        <contactwidget_section>
+            <additional_fields>
+                <name_title>Name</name_title>
+                <name_placeholder>Please enter your name</name_placeholder>
+                <email_title>Email</email_title>
+                <email_placeholder>Please enter your email</email_placeholder>
+                <telephone_title>Phone Number</telephone_title>
+                <telephone_placeholder>Enter Phone Number</telephone_placeholder>
+                <subject_title>Subject</subject_title>
+                <subject_placeholder>Enter Subject</subject_placeholder>
+                <comment_title>What’s on your mind?</comment_title>
+                <comment_placeholder>Enter here..</comment_placeholder>
+                <additional_field_1>How did you hear about us?</additional_field_1>
+                <additional_field_2>Interests</additional_field_2>
+                <additional_field_3>Subscribe to Newsletter</additional_field_3>
+            </additional_fields>
+        </contactwidget_section>
+    </default>
+</config>

@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <section id="contactwidget_section" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Contact Form Widget</label>
+            <tab>solwin_extension_tab</tab>
+            <resource>Solwin_ContactwidgetExtend::config</resource>
+            <group id="additional_fields" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Fields Title and Placeholder</label>
+                <!-- Name Title -->
+                <field id="name_title" canRestore="1" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Name Title</label>
+                    <comment>Title for Name</comment>
+                </field>
+                <!-- Name Placeholder -->
+                <field id="name_placeholder" canRestore="1" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Name Placeholder</label>
+                    <comment>Placeholder for Name</comment>
+                </field>
+                <!-- Email Title -->
+                <field id="email_title" canRestore="1" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Title</label>
+                    <comment>Title for Email</comment>
+                </field>
+                <!-- Email Placeholder -->
+                <field id="email_placeholder" canRestore="1" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Placeholder</label>
+                    <comment>Placeholder for Email</comment>
+                </field>
+                <!-- Telephone Title -->
+                <field id="telephone_title" canRestore="1" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Telephone Title</label>
+                    <comment>Title for Telephone</comment>
+                </field>
+                <!-- Telephone Placeholder -->
+                <field id="telephone_placeholder" canRestore="1" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Telephone Placeholder</label>
+                    <comment>Placeholder for Telephone</comment>
+                </field>
+                <!-- Subject Title -->
+                <field id="subject_title" canRestore="1" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Subject Title</label>
+                    <comment>Title for Subject</comment>
+                </field>
+                <!-- Subject Placeholder -->
+                <field id="subject_placeholder" canRestore="1" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Subject Placeholder</label>
+                    <comment>Placeholder for Subject</comment>
+                </field>
+                <!-- Comment Title -->
+                <field id="comment_title" canRestore="1" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Comment Title</label>
+                    <comment>Title for Comment</comment>
+                </field>
+                <!-- Comment Placeholder -->
+                <field id="comment_placeholder" canRestore="1" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Comment Placeholder</label>
+                    <comment>Placeholder for Comment</comment>
+                </field>
+                <field id="additional_field_1" canRestore="1" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Additional Field 1: Dropdown</label>
+                    <comment>Title for Dropdown</comment>
+                </field>
+                <field id="additional_field_2" canRestore="1" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Additional Field 2: Multiselect</label>
+                    <comment>Title for Multiselect</comment>
+                </field>
+                <field id="additional_field_3" canRestore="1" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Additional Field 3: Checkbox</label>
+                    <comment>Title for Checkbox</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

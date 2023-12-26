@@ -1,0 +1,5 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+       <add id="Solwin_ContactwidgetExtend::contactwidget_contactwidget_extend_contactwidget" title="Contact Inquire" module="Solwin_ContactwidgetExtend" sortOrder="10" parent="Solwin_Contactwidget::contact_widget" action="contactwidget_extend/contactwidget/index" resource="Solwin_ContactwidgetExtend::contactwidget_contactwidget_extend_contactwidget"/>
+    </menu>
+</config>
